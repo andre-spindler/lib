@@ -58,7 +58,9 @@ class tx_lib_parameters extends tx_lib_object {
 	 */
 	function tx_lib_parameters ($controller) {
 		parent::tx_lib_object($controller);
-		$this->setArray(t3lib_div::GParrayMerged($controller->getDesignator()));
+		if (is_object($controller) && is_subclass_of($controller, 'tx_lib_controller')) {
+			$this->setArray(t3lib_div::_GPmerged($controller->getDesignator()));
+		}
 		// Initialize the cHash system if there are parameters available
 		if ($GLOBALS['TSFE'] && count($parameters)) {
 			$GLOBALS['TSFE']->reqCHash();

@@ -104,6 +104,9 @@ class tx_lib_controller extends tx_lib_object {
 	var $input; // The input string.
 	var $output; // The output string.
 
+	var $cObj;
+	var $conf;
+
 	/**
 	 * Main function of the controller
 	 *
@@ -126,6 +129,7 @@ class tx_lib_controller extends tx_lib_object {
 		$this->input = $input;
 		$this->context = is_object($context) ? $context : $this->_createContext();
 		$this->parameters = is_object($parameters) ? $parameters : $this->_createParameters();
+		$this->conf = $configurations;
 		$this->configurations = is_object($configurations) ? $configurations : $this->_createConfigurations($configurations);
 		return $this->_runControllerAndAction($this->_findControllerAndAction());
 	}
@@ -255,7 +259,7 @@ class tx_lib_controller extends tx_lib_object {
 		$this->action = $action;
 		$controller = tx_div::makeInstance($controllerName);
 		// Set all values to the new controller
-    foreach(array_keys(get_class_vars(get_class($this))) as $key) $controller->$key =& $this->$key; 
+		foreach(array_keys(get_class_vars(get_class($this))) as $key) $controller->$key =& $this->$key; 
 		// Rebuild the central quad
 		$controller->context->controller =& $controller;
 		$controller->parameters->controller =& $controller;

@@ -114,7 +114,9 @@ class tx_lib_configurations extends tx_lib_object {
 		//
 		foreach((array) $data as $sheet => $languages) {
 			foreach((array) $languages[$languagePointer] as $key => $def) {
-				$this->set($key, $def[$valuePointer]);
+				if ($def[$valuePointer] != '') {
+					$this->set($key, $def[$valuePointer]);
+				}
 			}
 		}
 	}

@@ -56,7 +56,7 @@ class tx_lib_parameters extends tx_lib_object {
 	 * @param		string		cObj
 	 * @return		void
 	 */
-	function tx_lib_parameters ($controller) {
+	function tx_lib_parameters ($controller = null) {
 		parent::tx_lib_object($controller);
 		if (is_object($controller) && is_subclass_of($controller, 'tx_lib_controller')) {
 			$this->setArray(t3lib_div::_GPmerged($controller->getDesignator()));

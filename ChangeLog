@@ -1,5 +1,12 @@
 09-01-15 Andre Spindler <git@andre-spindler.de>
 
+	* version 0.3.0
+	* compatibility for TYPO3 6.2
+	* introduce namespaces and rewrite classes
+
+
+09-01-15 Andre Spindler <git@andre-spindler.de>
+
 	* version 0.2.1
 	* fixed resultBrowser
 

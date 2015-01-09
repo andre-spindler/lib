@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'ECT library as MVC alternative to tslib_pibase. Contains: autoloaders, controller, configurations, SPL data objects, phpView, translator.  NG: typo3.teams.extension-coordination.',
 	'category' => 'misc',
 	'shy' => 0,
-	'version' => '0.2.1',
+	'version' => '0.3.0',
 	'dependencies' => 'div',
 	'conflicts' => '',
 	'priority' => '',
@@ -34,9 +34,9 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => '',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '4.5.0-6.1.99',
-			'php' => '5.0.0-5.3.99',
-			'div' => '0.2.0',
+			'typo3' => '6.0.0-6.2.99',
+			'php' => '5.3.0-5.6.99',
+			'div' => '0.3.0',
 		),
 		'conflicts' => array(
 		),

@@ -112,7 +112,13 @@ class tx_lib_t3Loader {
 	 */
 	function makeInstanceClassName($class, $alternativeKey='', $prefix = 'class.', $suffix = '.php') {
 		if(tx_lib_t3Loader::load($class, $alternativeKey, $prefix, $suffix)) {
-			return t3lib_div::makeInstanceClassName($class); // returns ux_ classes
+			$object = t3lib_div::makeInstance($class);  // returns/creates ux_ classes
+			$finalClassName = '';
+			if (is_object($object)) {
+				$finalClassName = get_class($object);
+				unset($object);
+			}
+			return $finalClassName;
 		} else {
 			return false;
 		}
@@ -166,10 +172,10 @@ class tx_lib_t3Loader {
 		}
 		if(!$error) {
 			if(preg_match('/^tx_[0-9A-Za-z_]*$/', $class)) {  // with tx_ prefix
-				$parts=split('_', trim($class));
+				$parts=explode('_', trim($class));
 				array_shift($parts); // strip tx
 			}elseif(preg_match('/^[0-9A-Za-z_]*$/', $class)) { // without tx_ prefix
-				$parts=split('_', trim($class));
+				$parts=explode('_', trim($class));
 			}else{
 				$error = 'classError';
 			}

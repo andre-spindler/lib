@@ -112,7 +112,13 @@ class tx_lib_pearLoader{
 	 */
 	function makeInstanceClassName($class, $alternativeKey='', $prefix = '', $suffix = '.php') {
 		tx_lib_pearLoader::load($class, $alternativeKey, $prefix, $suffix);
-		return t3lib_div::makeInstanceClassName($class); // returns ux_ classes
+		$object = t3lib_div::makeInstance($class); // returns/creates ux_ classes
+		$finalClassName = '';
+		if (is_object($object)) {
+			$finalClassName = get_class($object);
+			unset($object);
+		}
+		return $finalClassName;
 	}
 
 	/****************************************************************
@@ -132,10 +138,10 @@ class tx_lib_pearLoader{
 	 */
 	function _find($class, $alternativeKey='', $prefix = '', $suffix = '.php') {
 		if(preg_match('/^tx_[A-Za-z]+.*$/', $class)){  // with tx_ prefix
-			$parts = split('_', trim($class));
+			$parts = explode('_', trim($class));
 			array_shift($parts); // strip tx
 		}elseif(preg_match('/^[A-Za-z]+.*$/', $class)){ // without tx_ prefix
-			$parts = split('_', trim($class));
+			$parts = explode('_', trim($class));
 		}else{
 			$error = 'classError';
 		}

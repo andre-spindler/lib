@@ -1,5 +1,11 @@
 08-01-15 Andre Spindler <git@andre-spindler.de>
 
+	* version 0.2.0
+	* compatibility for TYPO3 4.6 upto 6.1
+
+
+08-01-15 Andre Spindler <git@andre-spindler.de>
+
 	* version 0.1.1
 	* set constraints for TYPO3 version and PHP version
 

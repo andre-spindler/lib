@@ -1,4 +1,10 @@
-08-01-15 Andre Spindler <git@andre-spindler.de>
+09-01-15 Andre Spindler <git@andre-spindler.de>
+
+	* version 0.2.1
+	* fixed resultBrowser
+
+
+09-01-15 Andre Spindler <git@andre-spindler.de>
 
 	* version 0.2.0
 	* compatibility for TYPO3 4.6 upto 6.1

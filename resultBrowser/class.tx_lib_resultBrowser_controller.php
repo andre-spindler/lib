@@ -46,11 +46,15 @@
  * @package    TYPO3
  * @subpackage lib
  */
+
+require_once(t3lib_extMgm::extPath('lib') . 'resultBrowser/class.tx_lib_resultBrowser_model.php');
+require_once(t3lib_extMgm::extPath('lib') . 'resultBrowser/class.tx_lib_resultBrowser_view.php');
+
 class tx_lib_resultBrowser_controller extends tx_lib_controller {
 
 	function defaultAction() {
-		$model = $this->makeInstance('tx_lib_resultBrowser_model');
-		$view = $this->makeInstance('tx_lib_resultBrowser_view', $model);
+		$model = t3lib_div::makeInstance('tx_lib_resultBrowser_model', $this, $this->controller);
+		$view = t3lib_div::makeInstance('tx_lib_resultBrowser_view', $model, $this);
 		$view->setPathToTemplateDirectory('EXT:lib/resultBrowser/');
 		return $view->render('template.php');
 	}

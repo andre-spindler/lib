@@ -1,9 +1,11 @@
 <?php 
 
+require_once(t3lib_extMgm::extPath('lib') . 'resultBrowser/class.tx_lib_resultBrowser_controller.php');
+
 class tx_lib_resultBrowserSpl extends tx_lib_object {
 
 	function buildAs($browserKey = 'browserKey', $totalResultCountKey = 'totalResultCountKey') {
-		$resultbrowser = tx_div::makeInstance('tx_lib_resultBrowser_controller');
+		$resultbrowser = t3lib_div::makeInstance('tx_lib_resultBrowser_controller');
 		$resultbrowser->setDefaultDesignator($this->getDefaultDesignator());
 		$this->controller->configurations->set('totalResultCount', $this->controller->get($totalResultCountKey));
 		$this->controller->set($browserKey, $resultbrowser->main(NULL, $this->controller->configurations));

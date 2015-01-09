@@ -224,6 +224,15 @@ class tx_lib_translator extends tx_lib_object {
 			// php or xml as source: In any case the charset will be that of the system language.
 			// However, this function guarantees only return output for default language plus the specified language (which is different from how 3.7.0 dealt with it)
 			$this->LOCAL_LANG = t3lib_div::readLLfile($basePath,$this->LLkey);
+			if (t3lib_div::int_from_ver(TYPO3_version) >= 4006000) {
+				$tmpLANG = $this->LOCAL_LANG;
+				$this->LOCAL_LANG = array();
+				foreach ($tmpLANG as $langKey => $langData) {
+					foreach ($langData as $label => $labelData) {
+						$this->LOCAL_LANG[$langKey][$label] = $labelData[0]['target'];
+					}
+				}
+			}
 			if ($this->altLLkey)    {
 				$tempLOCAL_LANG = t3lib_div::readLLfile($basePath,$this->altLLkey);
 				$this->LOCAL_LANG = array_merge(is_array($this->LOCAL_LANG) ? $this->LOCAL_LANG : array(),$tempLOCAL_LANG);

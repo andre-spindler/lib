@@ -162,17 +162,21 @@ class Translator extends Object {
 	 */
 	function _translate($text) {
 		$this->_loadLocalLang();
-#		$pattern = $this->translationPattern . 'e';
 
-#		return preg_replace($pattern, '$this->_getLocalLang(\'$1\')', $text);
+		if (version_compare(PHP_VERSION, '5.4.0') >= 0) {
+			$pattern = $this->translationPattern . 'u';
 
-		$pattern = $this->translationPattern . 'u';
+			return preg_replace_callback($pattern,
+					function($matches) {
+						return $this->_getLocalLang($matches[1]);
+					},
+					$text);
+		} else {
+			$pattern = $this->translationPattern . 'e';
 
-		return preg_replace_callback($pattern, 
-				function($matches) {
-					return $this->_getLocalLang($matches[1]);
-				},
-				$text);
+			return preg_replace($pattern, '$this->_getLocalLang(\'$1\')', $text);
+		}
+
 	}
 
 

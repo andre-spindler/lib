@@ -1,3 +1,9 @@
+21-04-15 Andre Spindler <git@andre-spindler.de>
+
+	* upgraded missing components for TYPO3 6.2
+	* moved nun-upgraded components to backup directory
+
+
 09-01-15 Andre Spindler <git@andre-spindler.de>
 
 	* version 0.3.0

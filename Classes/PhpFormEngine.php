@@ -503,5 +503,3 @@ class PhpFormEngine extends FormBase {
 
 }
 
-
-?>

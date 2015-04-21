@@ -883,5 +883,3 @@ class FormBase extends ViewBase {
 
 }
 
-
-?>

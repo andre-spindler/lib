@@ -3,12 +3,12 @@
 class tx_lib_controller extends \Spin\Lib\Controller {
 
 	function __construct($parameter1 = NULL, $parameter2 = NULL) {
-		parent::Controller($parameter1, $parameter2);
+		parent::constructController($parameter1, $parameter2);
 	}
 
 
 	function tx_lib_controller($parameter1 = NULL, $parameter2 = NULL) {
-		parent::Controller($parameter1, $parameter2);
+		parent::constructController($parameter1, $parameter2);
 	}
 
 }

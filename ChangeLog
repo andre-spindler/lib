@@ -1,5 +1,11 @@
 22-05-20 Andre Spindler <git@andre-spindler.de>
 
+        * added autoloader as compatibility layer when calling the non-namespaced classes. Thanks to Ingo Müller
+          for this suggestion an a draft version of the file.
+
+
+22-05-20 Andre Spindler <git@andre-spindler.de>
+
         * fixed wrong fallback in class tx_lib_translator. Thanks to Ingo Müller for pointing out this.
 
 

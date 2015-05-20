@@ -1,3 +1,8 @@
+22-05-20 Andre Spindler <git@andre-spindler.de>
+
+        * fixed wrong fallback in class tx_lib_translator. Thanks to Ingo Müller for pointing out this.
+
+
 22-04-15 Andre Spindler <git@andre-spindler.de>
 
         * fixed bug in initialization of compatibility class for controller
